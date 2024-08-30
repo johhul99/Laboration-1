@@ -9,10 +9,10 @@ void highlighter (string a)
 {
 
     int mainLength = a.Length;
-    char indexedChar = a[1];
+    char indexedChar = a[0];
     int value = indexedChar;
 
-    for (int i = 2; i < mainLength; i++)
+    for (int i = 1; i < mainLength; i++)
     { 
         int highlightLength = i - value + 1;
         
