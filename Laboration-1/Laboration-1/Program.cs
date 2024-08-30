@@ -25,8 +25,8 @@ void highlighter (string a)
         else if (a[i] == (indexedChar))
         {
             string highLighted = a.Substring(value, highlightLength);
-            string nonHighlighted = a.Substring(0, value);
-            string nonHighlighted2 = a.Substring(i+1, highlightLength-i);
+            string nonHighlighted = a.Substring(0, value - 1);
+            string nonHighlighted2 = a.Substring(i + 1, highlightLength - i);
             Console.WriteLine(nonHighlighted);
 
             Console.ForegroundColor = ConsoleColor.Red;
