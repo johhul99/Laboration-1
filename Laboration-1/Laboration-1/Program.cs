@@ -1,7 +1,7 @@
 ﻿using System.Runtime.ExceptionServices;
 using static System.Net.Mime.MediaTypeNames;
 
-string main = "12341b323";
+string main = "1231b323";
 
 
 
@@ -16,24 +16,22 @@ void highlighter (string a)
     { 
         int highlightLength = i - value + 1;
         
-        
 
         if (char.IsLetter(a[i]))
         {
             indexedChar = a[i+1];
+            i++;
         }
         else if (a[i] == (indexedChar))
         {
-            string highLighted = a.Substring(value, highlightLength);
-            string nonHighlighted = a.Substring(0, value - 1);
-            string nonHighlighted2 = a.Substring(i + 1, highlightLength - i);
-            Console.WriteLine(nonHighlighted);
+
+            Console.WriteLine(a.Substring(0, value - 1));
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(highLighted);
+            Console.WriteLine(a.Substring(value, highlightLength));
 
             Console.ResetColor();
-            Console.WriteLine(nonHighlighted2);
+            Console.WriteLine(a.Substring(i + 1, highlightLength - i));
 
             indexedChar++;
         }
@@ -46,5 +44,5 @@ void highlighter (string a)
     }
 }
 
-
 highlighter(main);
+    
