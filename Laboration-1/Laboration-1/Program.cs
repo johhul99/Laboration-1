@@ -1,45 +1,54 @@
 ﻿using System.Runtime.ExceptionServices;
 using static System.Net.Mime.MediaTypeNames;
 
-string main = "1231b323";
+string main = "29535123p48723487597645723645";
 
 
 
 void highlighter (string a)
 {
+    int value = 0;
 
-    int mainLength = a.Length;
-    char indexedChar = a[0];
-    int value = indexedChar;
-
-    for (int i = 1; i < mainLength; i++)
+    for (int i = 1; i < a.Length; i++)
     { 
         int highlightLength = i - value + 1;
-        
 
         if (char.IsLetter(a[i]))
         {
-            indexedChar = a[i+1];
-            i++;
+            value++;
+            i = value;
+
         }
-        else if (a[i] == (indexedChar))
+        else if (char.IsLetter(a[value]))
+        {
+            value++;
+            i = value;
+        }
+        else if (a[i] == a[value])
         {
 
-            Console.WriteLine(a.Substring(0, value - 1));
+            Console.Write(a.Substring(0, value));
 
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(a.Substring(value, highlightLength));
+            Console.Write(a.Substring(value, highlightLength));
 
             Console.ResetColor();
-            Console.WriteLine(a.Substring(i + 1, highlightLength - i));
+            Console.Write(a.Substring(i + 1, a.Length - i - 1));
 
-            indexedChar++;
+            Console.WriteLine("");
+
+            value++;
+            i = value;
+        }
+        else if (i == a.Length-1)
+        {
+            value++;
+            i = value;
         }
         else
         {
-            break;
-        }
 
+        }
         
     }
 }
